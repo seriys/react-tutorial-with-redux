@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    image: node:10.1.0-alpine
+    working_dir: /app/my-app/
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: yarn start
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
